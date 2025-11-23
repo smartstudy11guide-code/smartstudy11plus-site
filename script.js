@@ -1,4 +1,4 @@
-// ---------------- Multiple Modals ----------------
+// Modals and scroll to top functionality (same as previous version)
 const modalBtns = document.querySelectorAll('.modal-btn');
 const modals = document.querySelectorAll('.modal');
 const closeBtns = document.querySelectorAll('.close');
@@ -16,14 +16,12 @@ closeBtns.forEach(btn => {
     });
 });
 
-// Close modal on click outside
 window.addEventListener('click', e => {
     modals.forEach(modal => {
         if(e.target === modal) modal.style.display = "none";
     });
 });
 
-// ---------------- Scroll to Top Button ----------------
 const scrollBtn = document.getElementById('scrollTop');
 window.addEventListener('scroll', () => {
     scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
@@ -32,7 +30,7 @@ scrollBtn.addEventListener('click', () => {
     window.scrollTo({top:0, behavior:'smooth'});
 });
 
-// ---------------- Card Fade-in Animation ----------------
+// Card fade-in animation
 const cards = document.querySelectorAll('.card');
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
