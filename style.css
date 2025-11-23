@@ -97,8 +97,8 @@ section h2 {
     color: #1F2937;
 }
 
-/* ---------------- Cards ---------------- */
-.card-container {
+/* ---------------- Card Container Horizontal Layout ---------------- */
+.card-container, .testimonial-container, .plans-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -106,7 +106,7 @@ section h2 {
     padding: 20px;
 }
 
-.card {
+.card, .plan-card, .testimonial {
     background: white;
     border-radius: 12px;
     padding: 15px;
@@ -124,9 +124,47 @@ section h2 {
     object-fit: cover;
 }
 
-.card:hover {
+.card:hover, .plan-card:hover, .testimonial:hover {
     transform: translateY(-8px) scale(1.05);
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* ---------------- Plans Cards ---------------- */
+.plans-container {
+    justify-content: center;
+}
+
+.plan-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.plan-card p {
+    margin-bottom: 10px;
+}
+
+.plan-card .price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4F46E5;
+    margin-bottom: 15px;
+}
+
+.plan-card .plan-btn {
+    background: #4F46E5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.plan-card .plan-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
 /* ---------------- Testimonials ---------------- */
@@ -136,28 +174,16 @@ section h2 {
     border-radius: 12px;
     margin: 50px auto;
     width: 90%;
-    max-width: 1000px;
+    max-width: 1200px;
 }
 
 .testimonial-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    gap: 30px;
 }
 
 .testimonial {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     width: 280px;
     text-align: center;
-    transition: transform 0.3s;
-}
-
-.testimonial:hover {
-    transform: translateY(-5px) scale(1.02);
 }
 
 /* ---------------- Modals ---------------- */
@@ -230,21 +256,6 @@ section h2 {
     background-color: #f59e0b;
 }
 
-/* ---------------- Footer ---------------- */
-footer {
-    background: #1F2937;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    margin-top: 40px;
-}
-
-/* ---------------- Animations ---------------- */
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
 /* ---------------- Scroll-to-top ---------------- */
 #scrollTop {
     position: fixed;
@@ -260,18 +271,23 @@ footer {
     font-size: 1.2rem;
 }
 
+/* ---------------- Animations ---------------- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* ---------------- Responsive ---------------- */
+@media (max-width: 1024px) {
+    .card-container, .testimonial-container, .plans-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
 @media (max-width: 768px) {
-    .card-container, .testimonial-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav a {
-        margin-left: 12px;
-        font-size: 1rem;
-    }
-
+    nav a { margin-left: 12px; font-size: 1rem; }
     .hero-text h1 { font-size: 2.2rem; }
     .hero-text p { font-size: 1rem; }
+    .card, .plan-card, .testimonial { width: 90%; }
 }
