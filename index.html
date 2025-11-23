@@ -1,1 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SmartStudy11+ Guide</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="index.html" class="logo">SmartStudy<span class="accent">11+</span> Guide</a>
+      </div>
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="index.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="past-papers.html">Past Papers</a>
+        <a href="tips.html">Tips</a>
+        <a href="plans.html">Plans</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner container">
+        <h1>SmartStudy11+ Guide</h1>
+        <p class="lead">Expert-quality 11+ resources, free courses and premium plans that give students the confidence to succeed.</p>
+        <div class="cta">
+          <a class="btn-primary" href="courses.html">Start Free Courses</a>
+          <a class="btn-outline" href="plans.html">See Plans</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro container fade">
+      <h2>Welcome — prepare smarter not harder</h2>
+      <p>High-quality, curriculum-aligned lessons, downloadable past papers and proven revision strategies presented in a clean, modern platform. Use the free materials or upgrade to tailored plans for extra guidance and 1-on-1 support.</p>
+    </section>
+
+    <section class="features container fade">
+      <article class="feature card">
+        <div class="card-media">
+          <img alt="Courses" src="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1200" loading="lazy">
+        </div>
+        <h3>Structured Courses</h3>
+        <p>Short lessons with worked examples and practice tests designed for 11+ topics.</p>
+        <a href="courses.html" class="link">Explore courses →</a>
+      </article>
+
+      <article class="feature card">
+        <div class="card-media">
+          <img alt="Past papers" src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1200" loading="lazy">
+        </div>
+        <h3>Past Papers</h3>
+        <p>Organised, downloadable past papers with answer keys and mark schemes.</p>
+        <a href="past-papers.html" class="link">View past papers →</a>
+      </article>
+
+      <article class="feature card">
+        <div class="card-media">
+          <img alt="Tips" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200" loading="lazy">
+        </div>
+        <h3>Exam Strategies</h3>
+        <p>Concise, high-impact tips and techniques that boost accuracy and timing.</p>
+        <a href="tips.html" class="link">Read tips →</a>
+      </article>
+    </section>
+
+    <section class="pricing container fade" id="plans">
+      <h2>Plans</h2>
+      <p class="muted">Free resources plus optional upgrades for students who want more.</p>
+      <div class="plans-grid">
+        <div class="plan">
+          <h4>Starter</h4>
+          <p class="price">Free</p>
+          <ul>
+            <li>Access to core free courses</li>
+            <li>Some past papers</li>
+            <li>Weekly tips</li>
+          </ul>
+          <button class="btn-choose" data-plan="Starter">Choose</button>
+        </div>
+
+        <div class="plan featured">
+          <h4>Pro</h4>
+          <p class="price">£6 / month</p>
+          <ul>
+            <li>Exclusive content & quizzes</li>
+            <li>Full downloadable packs</li>
+            <li>Priority support</li>
+          </ul>
+          <button class="btn-choose" data-plan="Pro">Choose</button>
+        </div>
+
+        <div class="plan">
+          <h4>Elite</h4>
+          <p class="price">£18 / month</p>
+          <ul>
+            <li>All Pro features</li>
+            <li>1-on-1 guidance</li>
+            <li>Custom study plans</li>
+          </ul>
+          <button class="btn-choose" data-plan="Elite">Choose</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials container fade">
+      <h2>What students say</h2>
+      <div class="slider" aria-live="polite">
+        <blockquote class="slide">“The lessons are clear and helped me improve my score.” — Asha</blockquote>
+        <blockquote class="slide">“Looks and feels professional — great resources.” — Yusuf</blockquote>
+        <blockquote class="slide">“Past papers were exactly like the real exam.” — Mia</blockquote>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong>SmartStudy11+ Guide</strong>
+          <p class="muted">High-quality 11+ resources & optional premium plans.</p>
+        </div>
+        <div>
+          <nav class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="past-papers.html">Past Papers</a>
+            <a href="plans.html">Plans</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+        <div>
+          <p class="muted">© 2025 SmartStudy11+ Guide</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal (used for plan selection and welcome) -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+</body>
+</html>
+
 
