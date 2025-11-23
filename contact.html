@@ -1,1 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — SmartStudy11+ Guide</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">SmartStudy<span class="accent">11+</span> Guide</a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="past-papers.html">Past Papers</a>
+        <a href="tips.html">Tips</a>
+        <a href="plans.html">Plans</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-content fade">
+    <section class="page-head">
+      <h1>Contact</h1>
+      <p class="muted">Questions? Fill the form and we’ll reply as soon as we can.</p>
+    </section>
+
+    <section class="contact-grid">
+      <form name="contact" method="POST" data-netlify="true" id="contactForm">
+        <input type="hidden" name="form-name" value="contact" />
+        <label>
+          Name
+          <input type="text" name="name" required>
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="email" required>
+        </label>
+
+        <label>
+          Message
+          <textarea name="message" rows="6" required></textarea>
+        </label>
+
+        <button type="submit" class="btn-primary">Send message</button>
+      </form>
+
+      <aside class="contact-info card">
+        <h3>Other ways to reach us</h3>
+        <p>Email: <a href="mailto:SmartStudy11.Guide@gmail.com">SmartStudy11.Guide@gmail.com</a></p>
+        <p>Typical reply time: 48 hours</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© 2025 SmartStudy11+ Guide</div>
+  </footer>
+</body>
+</html>
+
 
