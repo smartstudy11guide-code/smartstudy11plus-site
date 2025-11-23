@@ -38,6 +38,7 @@ nav a {
     font-size: 1.1rem;
     margin-left: 25px;
     color: white;
+    text-decoration: none;
     transition: color 0.3s, transform 0.3s;
 }
 
@@ -55,18 +56,19 @@ nav a:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 0 20px;
 }
 
 .hero-text h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    font-size: 3.5rem;
+    font-size: 3rem;
     margin-bottom: 20px;
     animation: fadeInUp 1.5s ease-in-out;
 }
 
 .hero-text p {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     margin-bottom: 30px;
     animation: fadeInUp 2s ease-in-out;
 }
@@ -75,8 +77,8 @@ nav a:hover {
     background: linear-gradient(90deg,#4F46E5,#FBBF24);
     border: none;
     color: white;
-    padding: 14px 30px;
-    font-size: 1.2rem;
+    padding: 12px 25px;
+    font-size: 1.1rem;
     cursor: pointer;
     border-radius: 10px;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -90,8 +92,8 @@ nav a:hover {
 /* ---------------- Section Titles ---------------- */
 section h2 {
     text-align: center;
-    font-size: 2.5rem;
-    margin: 60px 0 40px;
+    font-size: 2rem;
+    margin: 50px 0 30px;
     color: #1F2937;
 }
 
@@ -100,38 +102,38 @@ section h2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 25px;
+    gap: 20px;
     padding: 20px;
 }
 
 .card {
     background: white;
-    border-radius: 15px;
-    padding: 20px;
-    width: 280px;
+    border-radius: 12px;
+    padding: 15px;
+    width: 260px;
     text-align: center;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: transform 0.35s, box-shadow 0.35s;
 }
 
 .card img {
     width: 100%;
     height: 150px;
-    border-radius: 12px;
+    border-radius: 10px;
     margin-bottom: 15px;
     object-fit: cover;
 }
 
 .card:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 /* ---------------- Testimonials ---------------- */
 .testimonials {
     background: #EDE9FE;
-    padding: 50px 20px;
-    border-radius: 15px;
+    padding: 40px 20px;
+    border-radius: 12px;
     margin: 50px auto;
     width: 90%;
     max-width: 1000px;
@@ -141,15 +143,15 @@ section h2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 25px;
+    gap: 20px;
 }
 
 .testimonial {
     background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.12);
-    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 280px;
     text-align: center;
     transition: transform 0.3s;
 }
@@ -159,30 +161,117 @@ section h2 {
 }
 
 /* ---------------- Modals ---------------- */
-.modal { /* same as before */ }
-.modal-content { /* same as before */ }
-.close { /* same as before */ }
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 25px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
 
 /* ---------------- Newsletter ---------------- */
-.newsletter { /* same as before */ }
-.newsletter input[type="email"] { /* same as before */ }
-.newsletter button { /* same as before */ }
+.newsletter {
+    background: #4F46E5;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 12px;
+    margin: 50px 20px;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    width: 250px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+}
+
+.newsletter button {
+    padding: 10px 20px;
+    background-color: #FBBF24;
+    color: #111827;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.newsletter button:hover {
+    background-color: #f59e0b;
+}
 
 /* ---------------- Footer ---------------- */
-footer { /* same as before */ }
+footer {
+    background: #1F2937;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+}
 
 /* ---------------- Animations ---------------- */
-@keyframes fadeInUp { /* same as before */ }
-@keyframes fadeIn { /* same as before */ }
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
 /* ---------------- Scroll-to-top ---------------- */
-#scrollTop { /* same as before */ }
-#scrollTop:hover { /* same as before */ }
+#scrollTop {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #4F46E5;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    font-size: 1.2rem;
+}
 
 /* ---------------- Responsive ---------------- */
 @media (max-width: 768px) {
-    .card-container, .testimonial-container { flex-direction: column; align-items: center; }
-    nav a { margin-left: 12px; font-size: 1rem; }
-    .hero-text h1 { font-size: 2.4rem; }
-    .hero-text p { font-size: 1.15rem; }
+    .card-container, .testimonial-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin-left: 12px;
+        font-size: 1rem;
+    }
+
+    .hero-text h1 { font-size: 2.2rem; }
+    .hero-text p { font-size: 1rem; }
 }
