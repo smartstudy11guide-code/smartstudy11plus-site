@@ -34,7 +34,7 @@ header h2 {
 
 nav a {
     font-family: 'Poppins', sans-serif;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 1.1rem;
     margin-left: 25px;
     color: white;
@@ -97,8 +97,33 @@ section h2 {
     color: #1F2937;
 }
 
-/* ---------------- Card Container Horizontal Layout ---------------- */
-.card-container, .testimonial-container, .plans-container {
+/* ---------------- Horizontal Subheadings ---------------- */
+.subheadings {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.subheadings h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 8px 15px;
+    background: #EDE9FE;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.subheadings h3:hover {
+    background: #C7D2FE;
+    transform: scale(1.1);
+}
+
+/* ---------------- Cards ---------------- */
+.card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -106,7 +131,7 @@ section h2 {
     padding: 20px;
 }
 
-.card, .plan-card, .testimonial {
+.card {
     background: white;
     border-radius: 12px;
     padding: 15px;
@@ -124,47 +149,25 @@ section h2 {
     object-fit: cover;
 }
 
-.card:hover, .plan-card:hover, .testimonial:hover {
+.card:hover {
     transform: translateY(-8px) scale(1.05);
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* ---------------- Plans Cards ---------------- */
-.plans-container {
-    justify-content: center;
-}
-
-.plan-card h3 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.plan-card p {
-    margin-bottom: 10px;
-}
-
-.plan-card .price {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #4F46E5;
-    margin-bottom: 15px;
-}
-
-.plan-card .plan-btn {
+.card button {
+    margin-top: 10px;
     background: #4F46E5;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 8px 15px;
     border-radius: 8px;
     cursor: pointer;
-    font-weight: 600;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, background 0.3s;
 }
 
-.plan-card .plan-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+.card button:hover {
+    background: #FBBF24;
+    transform: scale(1.05);
 }
 
 /* ---------------- Testimonials ---------------- */
@@ -174,16 +177,28 @@ section h2 {
     border-radius: 12px;
     margin: 50px auto;
     width: 90%;
-    max-width: 1200px;
+    max-width: 1000px;
 }
 
 .testimonial-container {
-    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 .testimonial {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     width: 280px;
     text-align: center;
+    transition: transform 0.3s;
+}
+
+.testimonial:hover {
+    transform: translateY(-5px) scale(1.02);
 }
 
 /* ---------------- Modals ---------------- */
@@ -256,6 +271,21 @@ section h2 {
     background-color: #f59e0b;
 }
 
+/* ---------------- Footer ---------------- */
+footer {
+    background: #1F2937;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+}
+
+/* ---------------- Animations ---------------- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* ---------------- Scroll-to-top ---------------- */
 #scrollTop {
     position: fixed;
@@ -271,23 +301,23 @@ section h2 {
     font-size: 1.2rem;
 }
 
-/* ---------------- Animations ---------------- */
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
 /* ---------------- Responsive ---------------- */
-@media (max-width: 1024px) {
-    .card-container, .testimonial-container, .plans-container {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-
 @media (max-width: 768px) {
-    nav a { margin-left: 12px; font-size: 1rem; }
+    .card-container, .testimonial-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin-left: 12px;
+        font-size: 1rem;
+    }
+
     .hero-text h1 { font-size: 2.2rem; }
     .hero-text p { font-size: 1rem; }
-    .card, .plan-card, .testimonial { width: 90%; }
+
+    .subheadings {
+        flex-direction: column;
+        gap: 15px;
+    }
 }
