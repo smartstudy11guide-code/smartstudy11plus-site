@@ -5,17 +5,26 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>SmartStudy11+ Guide</title>
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
+
+  <!-- AI PARTICLE BACKGROUND -->
+  <canvas id="ai-particles"></canvas>
 
   <!-- Top nav -->
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="index.html">SmartStudy<span class="accent">11+</span> Guide</a>
-      <button id="navToggle" class="nav-toggle" aria-label="Open navigation"><span class="hamburger"></span></button>
+      <button id="navToggle" class="nav-toggle" aria-label="Open navigation">
+        <span class="hamburger"></span>
+      </button>
       <nav class="main-nav" id="mainNav" aria-label="Main navigation">
         <a href="index.html" class="active">Home</a>
         <a href="courses.html">Courses</a>
@@ -34,7 +43,7 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <h1 class="hero-title">Master the 11+ with confidence</h1>
-          <p class="hero-sub">Free structured courses, real past papers, and expert tips — designed for every learner.</p>
+          <p class="hero-sub">Free structured courses, real past papers and expert tips — designed for every learner.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="courses.html">Browse Courses</a>
             <a class="btn btn-outline" href="plans.html">See Plans</a>
@@ -51,7 +60,7 @@
       </div>
     </section>
 
-    <!-- COURSES -->
+    <!-- QUICK COURSES (cards) -->
     <section id="courses" class="section">
       <div class="container">
         <h2 class="section-title">Featured Courses</h2>
@@ -63,11 +72,10 @@
               <p class="muted">Reasoning, problem solving and timed practice to build speed.</p>
             </div>
             <div class="card-actions">
-              <button class="btn btn-sm btn-modal" data-modal="modal-maths">View Tips</button>
+              <button class="btn btn-sm btn-primary" data-modal="modal-maths">View Tips</button>
               <a class="btn btn-sm btn-outline" href="courses.html">Open</a>
             </div>
           </article>
-
           <article class="card">
             <img src="https://source.unsplash.com/800x600/?english,books" alt="English example image">
             <div class="card-body">
@@ -75,11 +83,10 @@
               <p class="muted">Reading comprehension, vocabulary and exam writing skills.</p>
             </div>
             <div class="card-actions">
-              <button class="btn btn-sm btn-modal" data-modal="modal-english">View Tips</button>
+              <button class="btn btn-sm btn-primary" data-modal="modal-english">View Tips</button>
               <a class="btn btn-sm btn-outline" href="courses.html">Open</a>
             </div>
           </article>
-
           <article class="card">
             <img src="https://source.unsplash.com/800x600/?exam,paper" alt="Past papers example image">
             <div class="card-body">
@@ -87,7 +94,7 @@
               <p class="muted">Practice real past paper questions and learn strategies.</p>
             </div>
             <div class="card-actions">
-              <button class="btn btn-sm btn-modal" data-modal="modal-papers">View Tips</button>
+              <button class="btn btn-sm btn-primary" data-modal="modal-papers">View Tips</button>
               <a class="btn btn-sm btn-outline" href="past-papers.html">Browse</a>
             </div>
           </article>
@@ -117,7 +124,9 @@
             <p class="price">£10 / month</p>
           </div>
         </div>
-        <div class="center"><a class="btn btn-primary" href="plans.html">View all plans</a></div>
+        <div class="center">
+          <a class="btn btn-primary" href="plans.html">View all plans</a>
+        </div>
       </div>
     </section>
 
@@ -125,7 +134,7 @@
     <section id="quiz" class="section">
       <div class="container">
         <h2 class="section-title">Interactive Quizzes (Coming Soon)</h2>
-        <div class="cards-grid quiz-cards">
+        <div class="cards-grid">
           <div class="card no-img">
             <div class="card-body">
               <h3>Math Puzzle</h3>
@@ -157,13 +166,12 @@
       </div>
     </section>
 
-    <!-- AI SECTION -->
-    <section class="ai-section">
-      <canvas id="ai-particles"></canvas>
-      <div class="ai-content">
-        <h2>AI Tools Coming Soon</h2>
-        <p>Interactive, smart learning assistants to help you improve faster.</p>
-        <a href="#" class="btn btn-primary">Learn More</a>
+    <!-- AI SECTION PLACEHOLDER -->
+    <section id="ai-section" class="section">
+      <div class="container">
+        <h2>AI Features Coming Soon</h2>
+        <p>Interactive AI-powered guidance to help you learn faster and smarter.</p>
+        <a class="btn btn-primary" href="#">Learn More</a>
       </div>
     </section>
 
@@ -215,42 +223,101 @@
 
   <!-- MODALS -->
   <div id="modal-maths" class="modal" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog" role="dialog" aria-modal="true">
       <button class="modal-close" aria-label="Close">×</button>
       <h3>Maths tips</h3>
       <p>Practice with a timer, learn common strategies and review mistakes immediately.</p>
     </div>
   </div>
   <div id="modal-english" class="modal" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog" role="dialog" aria-modal="true">
       <button class="modal-close" aria-label="Close">×</button>
       <h3>English tips</h3>
       <p>Read short passages daily, summarise and practise grammar in short bursts.</p>
     </div>
   </div>
   <div id="modal-papers" class="modal" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog" role="dialog" aria-modal="true">
       <button class="modal-close" aria-label="Close">×</button>
       <h3>Past papers tips</h3>
       <p>Simulate exam conditions, time yourself and mark strictly to improve pacing.</p>
     </div>
   </div>
 
-  <!-- PARTICLE SCRIPT -->
+  <!-- AI PARTICLE SCRIPT -->
   <script>
-  const canvas = document.getElementById('ai-particles');
-  const ctx = canvas.getContext('2d');
-  let particlesArray = [];
-  let width = canvas.width = canvas.offsetWidth;
-  let height = canvas.height = canvas.offsetHeight;
-  const particleCount = 60;
-  const maxDistance = 140;
-  window.addEventListener('resize',()=>{width=canvas.width=canvas.offsetWidth;height=canvas.height=canvas.offsetHeight;});
-  class Particle{constructor(){this.x=Math.random()*width;this.y=Math.random()*height;this.radius=Math.random()*3+1;this.speedX=(Math.random()-0.5)*0.7;this.speedY=(Math.random()-0.5)*0.7}draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.radius,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,0.8)';ctx.fill()}update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>width)this.speedX*=-1;if(this.y<0||this.y>height)this.speedY*=-1;this.draw()}}
-  function initParticles(){particlesArray=[];for(let i=0;i<particleCount;i++){particlesArray.push(new Particle());}}
-  function connectParticles(){for(let a=0;a<particlesArray.length;a++){for(let b=a;b<particlesArray.length;b++){let dx=particlesArray[a].x-particlesArray[b].x;let dy=particlesArray[a].y-particlesArray[b].y;let distance=Math.sqrt(dx*dx+dy*dy);if(distance<maxDistance){ctx.beginPath();ctx.strokeStyle=`rgba(255,255,255,${1-distance/maxDistance})`;ctx.lineWidth=1;ctx.moveTo(particlesArray[a].x,particlesArray[a].y);ctx.lineTo(particlesArray[b].x,particlesArray[b].y);ctx.stroke()}}}}
-  function animate(){ctx.clearRect(0,0,width,height);particlesArray.forEach(p=>p.update());connectParticles();requestAnimationFrame(animate);}
-  initParticles();animate();
+    const canvas = document.getElementById('ai-particles');
+    const ctx = canvas.getContext('2d');
+    let particlesArray = [];
+    let width = canvas.width = canvas.offsetWidth;
+    let height = canvas.height = canvas.offsetHeight;
+
+    const particleCount = 60;
+    const maxDistance = 140;
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = canvas.offsetWidth;
+      height = canvas.height = canvas.offsetHeight;
+    });
+
+    class Particle {
+      constructor(){
+        this.x = Math.random()*width;
+        this.y = Math.random()*height;
+        this.radius = Math.random()*3+1;
+        this.speedX = (Math.random()-0.5)*0.7;
+        this.speedY = (Math.random()-0.5)*0.7;
+      }
+      draw(){
+        ctx.beginPath();
+        ctx.arc(this.x,this.y,this.radius,0,Math.PI*2);
+        ctx.fillStyle='rgba(255,255,255,0.8)';
+        ctx.fill();
+      }
+      update(){
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if(this.x<0||this.x>width) this.speedX*=-1;
+        if(this.y<0||this.y>height) this.speedY*=-1;
+        this.draw();
+      }
+    }
+
+    function initParticles(){
+      particlesArray=[];
+      for(let i=0;i<particleCount;i++){
+        particlesArray.push(new Particle());
+      }
+    }
+
+    function connectParticles(){
+      for(let a=0;a<particlesArray.length;a++){
+        for(let b=a;b<particlesArray.length;b++){
+          let dx = particlesArray[a].x - particlesArray[b].x;
+          let dy = particlesArray[a].y - particlesArray[b].y;
+          let distance = Math.sqrt(dx*dx + dy*dy);
+          if(distance<maxDistance){
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(255,255,255,${1-distance/maxDistance})`;
+            ctx.lineWidth=1;
+            ctx.moveTo(particlesArray[a].x,particlesArray[a].y);
+            ctx.lineTo(particlesArray[b].x,particlesArray[b].y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate(){
+      ctx.clearRect(0,0,width,height);
+      particlesArray.forEach(p => p.update());
+      connectParticles();
+      requestAnimationFrame(animate);
+    }
+
+    initParticles();
+    animate();
   </script>
+
 </body>
 </html>
