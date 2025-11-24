@@ -4,56 +4,66 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Past Papers — SmartStudy11+ Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo">SmartStudy<span class="accent">11+</span> Guide</a>
-      <nav class="main-nav">
+      <a class="logo" href="index.html">SmartStudy<span class="accent">11+</span> Guide</a>
+      <button id="navToggle3" class="nav-toggle" aria-label="Open navigation"><span class="hamburger"></span></button>
+      <nav class="main-nav" id="mainNav3">
         <a href="index.html">Home</a>
         <a href="courses.html">Courses</a>
-        <a href="past-papers.html">Past Papers</a>
+        <a href="past-papers.html" class="active">Past Papers</a>
         <a href="tips.html">Tips</a>
         <a href="plans.html">Plans</a>
-        <a href="contact.html">Contact</a>
         <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="container page-content fade">
-    <section class="page-head">
-      <h1>Past Papers</h1>
-      <p class="muted">Download organised past papers by subject and year.</p>
-    </section>
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1 class="page-title">Past Papers</h1>
+        <p class="muted">Organised past papers, with answers and download links.</p>
 
-    <section class="paper-grid">
-      <div class="paper card">
-        <h4>Maths — 2019</h4>
-        <p>Practice paper + answers</p>
-        <a class="btn-outline" href="#" download>Download</a>
-      </div>
+        <div class="cards-grid">
+          <div class="paper card">
+            <h3>Maths — 2019</h3>
+            <p class="muted">Practice paper + answers</p>
+            <div class="card-actions">
+              <a class="btn btn-outline" href="#" download>Download</a>
+            </div>
+          </div>
 
-      <div class="paper card">
-        <h4>Verbal Reasoning — 2018</h4>
-        <p>Exam-style verbal reasoning paper</p>
-        <a class="btn-outline" href="#" download>Download</a>
-      </div>
+          <div class="paper card">
+            <h3>Verbal Reasoning — 2018</h3>
+            <p class="muted">Exam-style verbal reasoning paper</p>
+            <div class="card-actions">
+              <a class="btn btn-outline" href="#" download>Download</a>
+            </div>
+          </div>
 
-      <div class="paper card">
-        <h4>Non-Verbal — 2017</h4>
-        <p>Visual reasoning past paper</p>
-        <a class="btn-outline" href="#" download>Download</a>
+          <div class="paper card">
+            <h3>Non-Verbal — 2017</h3>
+            <p class="muted">Visual reasoning past paper</p>
+            <div class="card-actions">
+              <a class="btn btn-outline" href="#" download>Download</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">© 2025 SmartStudy11+ Guide</div>
+    <div class="container footer-inner">
+      <p>© <span id="year3"></span> SmartStudy11+ Guide</p>
+    </div>
   </footer>
 </body>
 </html>
-
-
