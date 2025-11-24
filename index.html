@@ -12,84 +12,19 @@
   <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
-
-  <style>
-    /* Quick fix for glowing gradient background */
-    body {
-      background: linear-gradient(135deg, #f0f7ff, #e0f2ff);
-      overflow-x: hidden;
-    }
-
-    #ai-particles {
-      position: fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      z-index: -1;
-    }
-
-    /* Cards hover glow + lift */
-    .card {
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-    .card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(79,70,229,0.2), 0 0 20px rgba(251,187,36,0.15);
-    }
-
-    /* Buttons AI glow */
-    .btn-primary {
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-    .btn-primary::after {
-      content:"";
-      position:absolute;
-      top:-50%;
-      left:-50%;
-      width:200%;
-      height:200%;
-      background: linear-gradient(45deg, #4f46e5, #fbbf24, #3b82f6, #fbbf24);
-      background-size: 400% 400%;
-      opacity:0;
-      transition: all 0.4s ease;
-      filter: blur(20px);
-      z-index:-1;
-    }
-    .btn-primary:hover::after {
-      opacity: 0.6;
-      animation: gradientShift 4s linear infinite;
-    }
-    @keyframes gradientShift {
-      0%{background-position:0% 50%;}
-      50%{background-position:100% 50%;}
-      100%{background-position:0% 50%;}
-    }
-
-    /* Popular badge fix */
-    .plan-popular .badge {
-      top: -12px;
-      right: -12px;
-      transform: rotate(-10deg);
-      box-shadow: 0 4px 10px rgba(251,187,36,0.5);
-    }
-  </style>
 </head>
 <body>
-
-  <!-- AI PARTICLE BACKGROUND -->
-  <canvas id="ai-particles"></canvas>
-
+  <!-- Top nav -->
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="index.html">SmartStudy<span class="accent">11+</span> Guide</a>
+
       <button id="navToggle" class="nav-toggle" aria-label="Open navigation">
         <span class="hamburger"></span>
       </button>
+
       <nav class="main-nav" id="mainNav" aria-label="Main navigation">
-        <a href="index.html" class="active">Home</a>
+        <a href="index.html">Home</a>
         <a href="courses.html">Courses</a>
         <a href="past-papers.html">Past Papers</a>
         <a href="tips.html">Tips</a>
@@ -100,8 +35,8 @@
     </div>
   </header>
 
+  <!-- HERO -->
   <main>
-    <!-- HERO -->
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
@@ -111,140 +46,199 @@
             <a class="btn btn-primary" href="courses.html">Browse Courses</a>
             <a class="btn btn-outline" href="plans.html">See Plans</a>
           </div>
+
           <ul class="hero-features">
             <li>High-quality free content</li>
             <li>Downloadable past papers & answers</li>
             <li>Practical tips and short quizzes</li>
           </ul>
         </div>
+
         <figure class="hero-image" aria-hidden="true">
-          <img src="/smartstudy11plus-site/images/hero.png" alt="Students studying with books and laptop">
+          <img src="Images/hero-students-library.jpg" alt="Students studying with books and laptop">
         </figure>
       </div>
     </section>
 
-    <!-- COURSES -->
+    <!-- QUICK COURSES (cards) -->
     <section id="courses" class="section">
       <div class="container">
         <h2 class="section-title">Featured Courses</h2>
         <div class="cards-grid">
           <article class="card">
-            <img src="/smartstudy11plus-site/images/math.jpg" alt="Maths example image">
+            <img src="Images/kid-numbers-blackboard.jpg" alt="Maths example image">
             <div class="card-body">
               <h3>Maths Essentials</h3>
               <p class="muted">Reasoning, problem solving and timed practice to build speed.</p>
             </div>
             <div class="card-actions">
-              <button class="btn btn-sm btn-primary">View Tips</button>
+              <button class="btn btn-sm btn-modal" data-modal="modal-maths">View Tips</button>
               <a class="btn btn-sm btn-outline" href="courses.html">Open</a>
             </div>
           </article>
+
           <article class="card">
-            <img src="/smartstudy11plus-site/images/english.jpg" alt="English example image">
+            <img src="Images/student-writing-notes.jpg" alt="English example image">
             <div class="card-body">
               <h3>English Mastery</h3>
               <p class="muted">Reading comprehension, vocabulary and exam writing skills.</p>
             </div>
             <div class="card-actions">
-              <button class="btn btn-sm btn-primary">View Tips</button>
+              <button class="btn btn-sm btn-modal" data-modal="modal-english">View Tips</button>
               <a class="btn btn-sm btn-outline" href="courses.html">Open</a>
             </div>
           </article>
+
           <article class="card">
-            <img src="/smartstudy11plus-site/images/past-papers.jpg" alt="Past papers example image">
+            <img src="Images/student-laptop-library.jpg" alt="Past papers example image">
             <div class="card-body">
               <h3>Past Papers</h3>
               <p class="muted">Practice real past paper questions and learn strategies.</p>
             </div>
             <div class="card-actions">
-              <button class="btn btn-sm btn-primary">View Tips</button>
+              <button class="btn btn-sm btn-modal" data-modal="modal-papers">View Tips</button>
               <a class="btn btn-sm btn-outline" href="past-papers.html">Browse</a>
             </div>
           </article>
         </div>
       </div>
     </section>
+
+    <!-- PLANS PREVIEW -->
+    <section id="plans-preview" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Plans & Pricing</h2>
+        <div class="plans-row">
+          <div class="plan-card">
+            <h4>Free</h4>
+            <p class="muted">Core lessons, basic past papers</p>
+            <p class="price">£0</p>
+          </div>
+          <div class="plan-card plan-popular">
+            <span class="badge">Popular</span>
+            <h4>Standard</h4>
+            <p class="muted">Extra tips, downloadable packs</p>
+            <p class="price">£5 / month</p>
+          </div>
+          <div class="plan-card">
+            <h4>Premium</h4>
+            <p class="muted">All content plus personalised guidance</p>
+            <p class="price">£10 / month</p>
+          </div>
+        </div>
+        <div class="center"><a class="btn btn-primary" href="plans.html">View all plans</a></div>
+      </div>
+    </section>
+
+    <!-- QUIZ PLACEHOLDER -->
+    <section id="quiz" class="section">
+      <div class="container">
+        <h2 class="section-title">Interactive Quizzes (Coming Soon)</h2>
+        <div class="cards-grid">
+          <div class="card no-img">
+            <div class="card-body">
+              <h3>Math Puzzle</h3>
+              <p class="muted">Short timed puzzles to build speed.</p>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-sm btn-outline" onclick="alert('Quiz coming soon')">Play</button>
+            </div>
+          </div>
+
+          <div class="card no-img">
+            <div class="card-body">
+              <h3>English Challenge</h3>
+              <p class="muted">Vocabulary & comprehension tasks.</p>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-sm btn-outline" onclick="alert('Quiz coming soon')">Play</button>
+            </div>
+          </div>
+
+          <div class="card no-img">
+            <div class="card-body">
+              <h3>Past Paper Practice</h3>
+              <p class="muted">Mock questions with timings.</p>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-sm btn-outline" onclick="alert('Quiz coming soon')">Play</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">What learners say</h2>
+        <div class="testimonials-grid">
+          <blockquote class="testimonial">
+            <p class="stars">★★★★★</p>
+            <p class="quote">Clear lessons and excellent practice — helped me improve quickly.</p>
+            <cite>— S. Patel</cite>
+          </blockquote>
+
+          <blockquote class="testimonial">
+            <p class="stars">★★★★★</p>
+            <p class="quote">Great past-papers and explanations. The tips were really useful.</p>
+            <cite>— L. Brown</cite>
+          </blockquote>
+
+          <blockquote class="testimonial">
+            <p class="stars">★★★★★</p>
+            <p class="quote">User-friendly and well structured. Highly recommended.</p>
+            <cite>— R. Khan</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- newsletter -->
+    <section class="section">
+      <div class="container">
+        <div class="newsletter">
+          <h3>Get new tips directly</h3>
+          <form class="newsletter-form" id="newsletterForm" onsubmit="event.preventDefault(); alert('Thanks — newsletter subscription coming soon');">
+            <input type="email" placeholder="your@email.com" aria-label="Email" required>
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>© <span id="year"></span> SmartStudy11+ Guide — All rights reserved</p>
+      <small class="muted">Made for learners • High-quality free resources</small>
     </div>
   </footer>
 
-  <!-- AI PARTICLE SCRIPT -->
-  <script>
-    const canvas = document.getElementById('ai-particles');
-    const ctx = canvas.getContext('2d');
-    let particlesArray = [];
-    let width = canvas.width = canvas.offsetWidth;
-    let height = canvas.height = canvas.offsetHeight;
+  <!-- MODALS -->
+  <div id="modal-maths" class="modal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true">
+      <button class="modal-close" aria-label="Close">×</button>
+      <h3>Maths tips</h3>
+      <p>Practice with a timer, learn common strategies and review mistakes immediately.</p>
+    </div>
+  </div>
 
-    const particleCount = 60;
-    const maxDistance = 140;
+  <div id="modal-english" class="modal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true">
+      <button class="modal-close" aria-label="Close">×</button>
+      <h3>English tips</h3>
+      <p>Read short passages daily, summarise and practise grammar in short bursts.</p>
+    </div>
+  </div>
 
-    window.addEventListener('resize', () => {
-      width = canvas.width = canvas.offsetWidth;
-      height = canvas.height = canvas.offsetHeight;
-    });
-
-    class Particle {
-      constructor(){
-        this.x = Math.random()*width;
-        this.y = Math.random()*height;
-        this.radius = Math.random()*3+1;
-        this.speedX = (Math.random()-0.5)*0.7;
-        this.speedY = (Math.random()-0.5)*0.7;
-      }
-      draw(){
-        ctx.beginPath();
-        ctx.arc(this.x,this.y,this.radius,0,Math.PI*2);
-        ctx.fillStyle='rgba(255,255,255,0.8)';
-        ctx.fill();
-      }
-      update(){
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if(this.x<0||this.x>width) this.speedX*=-1;
-        if(this.y<0||this.y>height) this.speedY*=-1;
-        this.draw();
-      }
-    }
-
-    function initParticles(){
-      particlesArray=[];
-      for(let i=0;i<particleCount;i++){
-        particlesArray.push(new Particle());
-      }
-    }
-
-    function connectParticles(){
-      for(let a=0;a<particlesArray.length;a++){
-        for(let b=a;b<particlesArray.length;b++){
-          let dx = particlesArray[a].x - particlesArray[b].x;
-          let dy = particlesArray[a].y - particlesArray[b].y;
-          let distance = Math.sqrt(dx*dx + dy*dy);
-          if(distance<maxDistance){
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(255,255,255,${1-distance/maxDistance})`;
-            ctx.lineWidth=1;
-            ctx.moveTo(particlesArray[a].x,particlesArray[a].y);
-            ctx.lineTo(particlesArray[b].x,particlesArray[b].y);
-            ctx.stroke();
-          }
-        }
-      }
-    }
-
-    function animate(){
-      ctx.clearRect(0,0,width,height);
-      particlesArray.forEach(p => p.update());
-      connectParticles();
-      requestAnimationFrame(animate);
-    }
-
-    initParticles();
-    animate();
-  </script>
+  <div id="modal-papers" class="modal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true">
+      <button class="modal-close" aria-label="Close">×</button>
+      <h3>Past papers tips</h3>
+      <p>Simulate exam conditions, time yourself and mark strictly to improve pacing.</p>
+    </div>
+  </div>
 </body>
 </html>
