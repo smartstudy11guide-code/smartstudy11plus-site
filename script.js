@@ -1,68 +1,56 @@
-// ---------------- Modals ----------------
-const modalBtns = document.querySelectorAll('.modal-btn');
-const modals = document.querySelectorAll('.modal');
-const closeBtns = document.querySelectorAll('.close');
-
-modalBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const target = btn.getAttribute('data-target');
-        const modal = document.getElementById(target);
-        if(modal) modal.style.display = "block";
-    });
+// Modals
+document.querySelectorAll('.modal-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=> {
+    const id = btn.getAttribute('data-target');
+    const modal = document.getElementById(id);
+    if(modal) modal.style.display = 'flex';
+  });
+});
+document.querySelectorAll('.modal .close').forEach(c=>{
+  c.addEventListener('click', ()=> c.closest('.modal').style.display = 'none');
+});
+// close clicking outside
+window.addEventListener('click', e=>{
+  document.querySelectorAll('.modal').forEach(m=>{
+    if(e.target === m) m.style.display = 'none';
+  });
 });
 
-closeBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        btn.closest('.modal').style.display = "none";
-    });
+// scroll top
+const scrollTop = document.getElementById('scrollTop');
+window.addEventListener('scroll', ()=> {
+  if(window.scrollY > 300) scrollTop.style.display = 'block';
+  else scrollTop.style.display = 'none';
+});
+scrollTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+
+// fade-in for cards (Intersection Observer)
+const elems = document.querySelectorAll('.card, .plan-card, .testimonial');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(ent=>{
+    if(ent.isIntersecting){
+      ent.target.style.opacity = 1;
+      ent.target.style.transform = 'translateY(0)';
+      io.unobserve(ent.target);
+    }
+  });
+},{threshold:0.12});
+elems.forEach(el=>{
+  el.style.opacity = 0;
+  el.style.transform = 'translateY(18px)';
+  el.style.transition = 'all .7s cubic-bezier(.2,.9,.2,1)';
+  io.observe(el);
 });
 
-// Close modal if clicked outside content
-window.addEventListener('click', e => {
-    modals.forEach(modal => {
-        if(e.target === modal) modal.style.display = "none";
-    });
+// smooth internal links
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+  });
 });
 
-// ---------------- Scroll-to-top ----------------
-const scrollBtn = document.getElementById('scrollTop');
-window.addEventListener('scroll', () => {
-    scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-});
-scrollBtn.addEventListener('click', () => {
-    window.scrollTo({top:0, behavior:'smooth'});
-});
-
-// ---------------- Card fade-in animation ----------------
-const cards = document.querySelectorAll('.card, .plan-card, .testimonial');
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.style.opacity = 1;
-            entry.target.style.transform = "translateY(0)";
-        }
-    });
-}, {threshold: 0.1});
-
-cards.forEach(card => {
-    card.style.opacity = 0;
-    card.style.transform = "translateY(30px)";
-    card.style.transition = "all 0.8s ease-out";
-    observer.observe(card);
-});
-
-// ---------------- Smooth scroll for internal links ----------------
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if(target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    });
-});
-
-// ---------------- Optional: Dynamic Year in Footer ----------------
-const yearSpan = document.createElement('span');
-yearSpan.textContent = new Date().getFullYear();
-document.querySelector('footer p').appendChild(yearSpan);
+// dynamic year
+const y = new Date().getFullYear();
+const yEl = document.getElementById('year');
+if(yEl) yEl.textContent = y;
