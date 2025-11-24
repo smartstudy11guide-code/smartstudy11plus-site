@@ -1,216 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>SmartStudy11+ Guide</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SmartStudy11+ Guide</title>
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- Styles -->
-<link rel="stylesheet" href="style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Header -->
-<header>
-  <div class="container header-inner">
-    <h1 class="brand">SmartStudy11+</h1>
-    <nav class="main-nav" aria-label="Main navigation">
-      <a href="#home">Home</a>
-      <a href="#courses">Courses</a>
-      <a href="#past-papers">Past Papers</a>
-      <a href="#tips">Tips</a>
-      <a href="#plans">Plans</a>
-      <a href="#quiz">Quiz</a>
-      <a href="#testimonials">Reviews</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
+  <!-- App wrapper: left sidebar (layout B) + main content (layout A) -->
+  <div class="app">
 
-<!-- HERO / INTRO -->
-<section id="home" class="hero">
-  <div class="hero-overlay"></div>
-  <div class="container hero-inner">
-    <!-- Using the uploaded hero image path -->
-    <div class="hero-content">
-      <h2>Welcome to SmartStudy11+</h2>
-      <p class="lead">Free online courses, realistic past papers, and expert tips to help your child succeed in the 11+ exams.</p>
-      <div class="hero-cta">
-        <a class="btn primary" href="#courses">Explore Courses</a>
-        <a class="btn ghost" href="#plans">See Plans</a>
+    <!-- Sidebar (visible on desktop; collapsible) -->
+    <aside class="sidebar" id="sidebar" aria-label="Sidebar navigation">
+      <div class="sidebar-top">
+        <div class="brand">SmartStudy11+</div>
+        <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle menu">☰</button>
       </div>
-    </div>
-    <div class="hero-image">
-      <img src="/mnt/data/3e0ecebb-9c33-492c-9492-14cb622b9b88.png" alt="SmartStudy hero">
-    </div>
-  </div>
-</section>
-
-<!-- COURSES -->
-<section id="courses" class="section">
-  <div class="container">
-    <h2 class="section-title">Our Courses</h2>
-    <div class="card-container">
-      <article class="card">
-        <img src="https://source.unsplash.com/600x400/?math" alt="Maths course">
-        <h3>Maths Essentials</h3>
-        <p>Boost reasoning and problem-solving with step-by-step lessons and practice.</p>
-        <button class="btn modal-btn" data-target="modal1">View Tips</button>
-      </article>
-
-      <article class="card">
-        <img src="https://source.unsplash.com/600x400/?english,books" alt="English course">
-        <h3>English Mastery</h3>
-        <p>Improve reading, vocabulary and writing skills with structured lessons.</p>
-        <button class="btn modal-btn" data-target="modal2">View Tips</button>
-      </article>
-
-      <article class="card">
-        <img src="https://source.unsplash.com/600x400/?exam,paper" alt="Past papers">
-        <h3>Past Papers</h3>
-        <p>Practice under exam conditions with real past-paper questions and answers.</p>
-        <button class="btn modal-btn" data-target="modal3">View Tips</button>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- PLANS -->
-<section id="plans" class="section">
-  <div class="container">
-    <h2 class="section-title">Choose Your Plan</h2>
-
-    <!-- horizontal sub-headings (if needed) -->
-    <div class="subheadings" aria-hidden="true">
-      <h3>Free</h3>
-      <h3>Standard</h3>
-      <h3>Premium</h3>
-    </div>
-
-    <div class="plans-container">
-      <div class="plan-card">
-        <h3>Free</h3>
-        <p class="muted">Access to basic courses and past papers</p>
-        <p class="price">£0</p>
-        <button class="plan-btn">Get Started</button>
+      <nav class="sidebar-nav">
+        <a href="#home">Home</a>
+        <a href="#courses">Courses</a>
+        <a href="#past-papers">Past Papers</a>
+        <a href="#tips">Tips</a>
+        <a href="#plans">Plans</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="sidebar-footer">
+        <a class="btn small" href="#plans">Upgrade</a>
       </div>
+    </aside>
 
-      <div class="plan-card">
-        <h3>Standard</h3>
-        <p class="muted">Extra tips, downloadable materials and priority support</p>
-        <p class="price">£5 / month</p>
-        <button class="plan-btn">Get Started</button>
-      </div>
+    <!-- Main content -->
+    <main class="main">
+      <!-- Top nav for mobile -->
+      <header class="mobile-header">
+        <div class="container">
+          <div class="mobile-brand">SmartStudy11+</div>
+          <button id="mobileMenuBtn" class="btn small ghost">Menu</button>
+        </div>
+      </header>
 
-      <div class="plan-card">
-        <h3>Premium</h3>
-        <p class="muted">All features plus advanced quizzes and personalised guidance</p>
-        <p class="price">£10 / month</p>
-        <button class="plan-btn">Get Started</button>
-      </div>
-    </div>
+      <!-- HERO -->
+      <section id="home" class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <h1>Welcome to SmartStudy11+</h1>
+            <p class="lead">Free interactive 11+ courses, realistic past papers and expert tips — built to help students succeed.</p>
+            <div class="cta-row">
+              <a class="btn primary" href="#courses">Explore Courses</a>
+              <a class="btn ghost" href="#plans">See Plans</a>
+            </div>
+          </div>
+          <div class="hero-media">
+            <!-- using uploaded hero image path -->
+            <img src="/mnt/data/3e0ecebb-9c33-492c-9492-14cb622b9b88.png" alt="Students studying - SmartStudy hero">
+          </div>
+        </div>
+      </section>
+
+      <!-- COURSES (cards grid - Layout A) -->
+      <section id="courses" class="section">
+        <div class="container">
+          <h2 class="section-title">Our Courses</h2>
+          <div class="card-grid">
+            <article class="card">
+              <img src="https://source.unsplash.com/800x600/?math" alt="">
+              <h3>Maths Essentials</h3>
+              <p class="muted">Problem solving, reasoning and timed practice.</p>
+              <div class="card-actions">
+                <button class="btn" data-target="modal1">View Tips</button>
+                <a class="btn outline" href="courses.html">Open</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <img src="https://source.unsplash.com/800x600/?english,books" alt="">
+              <h3>English Mastery</h3>
+              <p class="muted">Reading, vocabulary and writing practice.</p>
+              <div class="card-actions">
+                <button class="btn" data-target="modal2">View Tips</button>
+                <a class="btn outline" href="courses.html">Open</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <img src="https://source.unsplash.com/800x600/?exam,paper" alt="">
+              <h3>Past Papers</h3>
+              <p class="muted">Real past papers with worked answers.</p>
+              <div class="card-actions">
+                <button class="btn" data-target="modal3">View Tips</button>
+                <a class="btn outline" href="past-papers.html">Browse</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PLANS (horizontal cards) -->
+      <section id="plans" class="section">
+        <div class="container">
+          <h2 class="section-title">Choose a Plan</h2>
+          <div class="card-grid plans-grid">
+            <div class="plan-card">
+              <h4>Free</h4>
+              <p class="muted">Basic courses & past papers</p>
+              <p class="price">£0</p>
+              <button class="btn plan-btn">Get Started</button>
+            </div>
+
+            <div class="plan-card popular">
+              <div class="badge">Popular</div>
+              <h4>Standard</h4>
+              <p class="muted">Extra tips, downloads & priority support</p>
+              <p class="price">£5 / month</p>
+              <button class="btn plan-btn primary">Choose Standard</button>
+            </div>
+
+            <div class="plan-card">
+              <h4>Premium</h4>
+              <p class="muted">All features + personalised guidance</p>
+              <p class="price">£10 / month</p>
+              <button class="btn plan-btn">Choose Premium</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUIZ placeholder -->
+      <section id="quiz" class="section">
+        <div class="container">
+          <h2 class="section-title">Interactive Quiz (Coming Soon)</h2>
+          <div class="card-grid">
+            <div class="card">
+              <h3>Math Puzzle</h3>
+              <p class="muted">Timed puzzles to sharpen reasoning.</p>
+              <button class="btn outline" onclick="alert('Quiz coming soon')">Play</button>
+            </div>
+            <div class="card">
+              <h3>English Challenge</h3>
+              <p class="muted">Vocabulary & comprehension games.</p>
+              <button class="btn outline" onclick="alert('Quiz coming soon')">Play</button>
+            </div>
+            <div class="card">
+              <h3>Past-Paper Practice</h3>
+              <p class="muted">Short mock questions.</p>
+              <button class="btn outline" onclick="alert('Quiz coming soon')">Play</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section id="testimonials" class="section">
+        <div class="container">
+          <h2 class="section-title">What Our Students Say</h2>
+          <div class="testimonial-grid">
+            <div class="testimonial">
+              <p class="stars">★★★★★</p>
+              <p class="quote">SmartStudy11+ made studying clear and fun — huge difference!</p>
+              <p class="who">— A. Smith</p>
+            </div>
+            <div class="testimonial">
+              <p class="stars">★★★★★</p>
+              <p class="quote">Excellent materials and brilliant exam tips.</p>
+              <p class="who">— L. Johnson</p>
+            </div>
+            <div class="testimonial">
+              <p class="stars">★★★★★</p>
+              <p class="quote">I felt prepared and confident on exam day.</p>
+              <p class="who">— M. Patel</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEWSLETTER -->
+      <section id="contact" class="section newsletter-section">
+        <div class="container">
+          <h2 class="section-title">Subscribe for Updates</h2>
+          <p class="muted">Get free tips, updates and new course releases</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Your email address" aria-label="Email address">
+            <button class="btn primary">Subscribe</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container footer-inner">
+          <p>© <span id="year"></span> SmartStudy11+ Guide — All rights reserved</p>
+        </div>
+      </footer>
+    </main>
   </div>
-</section>
 
-<!-- QUIZ (placeholder) -->
-<section id="quiz" class="section">
-  <div class="container">
-    <h2 class="section-title">Interactive Quiz</h2>
-    <div class="card-container">
-      <div class="card">
-        <h3>Math Puzzle</h3>
-        <p>Short timed puzzles to practice problem solving.</p>
-        <button class="btn" onclick="alert('Quiz coming soon!')">Play Now</button>
-      </div>
-      <div class="card">
-        <h3>English Challenge</h3>
-        <p>Vocabulary and comprehension mini-games.</p>
-        <button class="btn" onclick="alert('Quiz coming soon!')">Play Now</button>
-      </div>
-      <div class="card">
-        <h3>Past Paper Practice</h3>
-        <p>Mock questions to test timing and accuracy.</p>
-        <button class="btn" onclick="alert('Quiz coming soon!')">Play Now</button>
-      </div>
-    </div>
+  <!-- Modals -->
+  <div id="modal1" class="modal" aria-hidden="true">
+    <div class="modal-content"><button class="close" aria-label="Close">&times;</button><h3>Math tips</h3><p>Practice short daily sets and time yourself.</p></div>
   </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials" class="section">
-  <div class="container testimonials">
-    <h2 class="section-title">What Our Students Say</h2>
-    <div class="testimonial-container">
-      <div class="testimonial">
-        <p class="stars">★★★★★</p>
-        <p class="quote">SmartStudy11+ made studying clear and fun — huge difference!</p>
-        <p class="who">— A. Smith</p>
-      </div>
-      <div class="testimonial">
-        <p class="stars">★★★★★</p>
-        <p class="quote">Excellent materials and brilliant exam tips.</p>
-        <p class="who">— L. Johnson</p>
-      </div>
-      <div class="testimonial">
-        <p class="stars">★★★★★</p>
-        <p class="quote">I felt prepared and confident on exam day.</p>
-        <p class="who">— M. Patel</p>
-      </div>
-    </div>
+  <div id="modal2" class="modal" aria-hidden="true">
+    <div class="modal-content"><button class="close" aria-label="Close">&times;</button><h3>English tips</h3><p>Read widely and summarise passages in your own words.</p></div>
   </div>
-</section>
-
-<!-- NEWSLETTER -->
-<section class="newsletter section">
-  <div class="container">
-    <h2 class="section-title">Subscribe for Updates</h2>
-    <p class="muted">Get free tips, updates and new course releases</p>
-    <div class="newsletter-form">
-      <input type="email" placeholder="Your email address" aria-label="Email">
-      <button class="btn primary">Subscribe</button>
-    </div>
+  <div id="modal3" class="modal" aria-hidden="true">
+    <div class="modal-content"><button class="close" aria-label="Close">&times;</button><h3>Past papers tips</h3><p>Simulate the exam and review mistakes carefully.</p></div>
   </div>
-</section>
 
-<!-- Modals -->
-<div id="modal1" class="modal" aria-hidden="true">
-  <div class="modal-content">
-    <button class="close" aria-label="Close modal">&times;</button>
-    <h3>Math Tips</h3>
-    <p>Practice a small amount every day. Time yourself and review mistakes carefully.</p>
-  </div>
-</div>
+  <!-- Scroll to top -->
+  <button id="scrollTop" aria-label="Scroll to top">↑</button>
 
-<div id="modal2" class="modal" aria-hidden="true">
-  <div class="modal-content">
-    <button class="close" aria-label="Close modal">&times;</button>
-    <h3>English Tips</h3>
-    <p>Read widely, summarise passages and expand vocabulary with short daily exercises.</p>
-  </div>
-</div>
-
-<div id="modal3" class="modal" aria-hidden="true">
-  <div class="modal-content">
-    <button class="close" aria-label="Close modal">&times;</button>
-    <h3>Past Papers Tips</h3>
-    <p>Simulate the test, stick to timings and use answers to identify weak topics.</p>
-  </div>
-</div>
-
-<!-- Footer -->
-<footer id="contact">
-  <div class="container footer-inner">
-    <p>© <span id="year"></span> SmartStudy11+ Guide — All rights reserved</p>
-  </div>
-</footer>
-
-<!-- Scroll to top -->
-<button id="scrollTop" aria-label="Scroll to top">↑</button>
-
-<!-- Script -->
-<script src="script.js"></script>
+  <!-- JS -->
+  <script src="script.js"></script>
 </body>
 </html>
