@@ -12,13 +12,76 @@
   <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
+
+  <style>
+    /* Quick fix for glowing gradient background */
+    body {
+      background: linear-gradient(135deg, #f0f7ff, #e0f2ff);
+      overflow-x: hidden;
+    }
+
+    #ai-particles {
+      position: fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      z-index: -1;
+    }
+
+    /* Cards hover glow + lift */
+    .card {
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(79,70,229,0.2), 0 0 20px rgba(251,187,36,0.15);
+    }
+
+    /* Buttons AI glow */
+    .btn-primary {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .btn-primary::after {
+      content:"";
+      position:absolute;
+      top:-50%;
+      left:-50%;
+      width:200%;
+      height:200%;
+      background: linear-gradient(45deg, #4f46e5, #fbbf24, #3b82f6, #fbbf24);
+      background-size: 400% 400%;
+      opacity:0;
+      transition: all 0.4s ease;
+      filter: blur(20px);
+      z-index:-1;
+    }
+    .btn-primary:hover::after {
+      opacity: 0.6;
+      animation: gradientShift 4s linear infinite;
+    }
+    @keyframes gradientShift {
+      0%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
+    }
+
+    /* Popular badge fix */
+    .plan-popular .badge {
+      top: -12px;
+      right: -12px;
+      transform: rotate(-10deg);
+      box-shadow: 0 4px 10px rgba(251,187,36,0.5);
+    }
+  </style>
 </head>
 <body>
 
   <!-- AI PARTICLE BACKGROUND -->
   <canvas id="ai-particles"></canvas>
 
-  <!-- Top nav -->
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="index.html">SmartStudy<span class="accent">11+</span> Guide</a>
@@ -37,8 +100,8 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <main>
+    <!-- HERO -->
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
@@ -55,194 +118,59 @@
           </ul>
         </div>
         <figure class="hero-image" aria-hidden="true">
-          <img src="/mnt/data/3e0ecebb-9c33-492c-9492-14cb622b9b88.png" alt="Students studying with books and laptop">
+          <img src="/smartstudy11plus-site/images/hero.png" alt="Students studying with books and laptop">
         </figure>
       </div>
     </section>
 
-    <!-- QUICK COURSES (cards) -->
+    <!-- COURSES -->
     <section id="courses" class="section">
       <div class="container">
         <h2 class="section-title">Featured Courses</h2>
         <div class="cards-grid">
           <article class="card">
-            <img src="https://source.unsplash.com/800x600/?math" alt="Maths example image">
+            <img src="/smartstudy11plus-site/images/math.jpg" alt="Maths example image">
             <div class="card-body">
               <h3>Maths Essentials</h3>
               <p class="muted">Reasoning, problem solving and timed practice to build speed.</p>
             </div>
             <div class="card-actions">
-              <button class="btn btn-sm btn-primary" data-modal="modal-maths">View Tips</button>
+              <button class="btn btn-sm btn-primary">View Tips</button>
               <a class="btn btn-sm btn-outline" href="courses.html">Open</a>
             </div>
           </article>
           <article class="card">
-            <img src="https://source.unsplash.com/800x600/?english,books" alt="English example image">
+            <img src="/smartstudy11plus-site/images/english.jpg" alt="English example image">
             <div class="card-body">
               <h3>English Mastery</h3>
               <p class="muted">Reading comprehension, vocabulary and exam writing skills.</p>
             </div>
             <div class="card-actions">
-              <button class="btn btn-sm btn-primary" data-modal="modal-english">View Tips</button>
+              <button class="btn btn-sm btn-primary">View Tips</button>
               <a class="btn btn-sm btn-outline" href="courses.html">Open</a>
             </div>
           </article>
           <article class="card">
-            <img src="https://source.unsplash.com/800x600/?exam,paper" alt="Past papers example image">
+            <img src="/smartstudy11plus-site/images/past-papers.jpg" alt="Past papers example image">
             <div class="card-body">
               <h3>Past Papers</h3>
               <p class="muted">Practice real past paper questions and learn strategies.</p>
             </div>
             <div class="card-actions">
-              <button class="btn btn-sm btn-primary" data-modal="modal-papers">View Tips</button>
+              <button class="btn btn-sm btn-primary">View Tips</button>
               <a class="btn btn-sm btn-outline" href="past-papers.html">Browse</a>
             </div>
           </article>
         </div>
       </div>
     </section>
-
-    <!-- PLANS PREVIEW -->
-    <section id="plans-preview" class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">Plans & Pricing</h2>
-        <div class="plans-row">
-          <div class="plan-card">
-            <h4>Free</h4>
-            <p class="muted">Core lessons, basic past papers</p>
-            <p class="price">£0</p>
-          </div>
-          <div class="plan-card plan-popular">
-            <span class="badge">Popular</span>
-            <h4>Standard</h4>
-            <p class="muted">Extra tips, downloadable packs</p>
-            <p class="price">£5 / month</p>
-          </div>
-          <div class="plan-card">
-            <h4>Premium</h4>
-            <p class="muted">All content plus personalised guidance</p>
-            <p class="price">£10 / month</p>
-          </div>
-        </div>
-        <div class="center">
-          <a class="btn btn-primary" href="plans.html">View all plans</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- INTERACTIVE QUIZ -->
-    <section id="quiz" class="section">
-      <div class="container">
-        <h2 class="section-title">Interactive Quizzes (Coming Soon)</h2>
-        <div class="cards-grid">
-          <div class="card no-img">
-            <div class="card-body">
-              <h3>Math Puzzle</h3>
-              <p class="muted">Short timed puzzles to build speed.</p>
-            </div>
-            <div class="card-actions">
-              <button class="btn btn-sm btn-outline" onclick="alert('Quiz coming soon')">Play</button>
-            </div>
-          </div>
-          <div class="card no-img">
-            <div class="card-body">
-              <h3>English Challenge</h3>
-              <p class="muted">Vocabulary & comprehension tasks.</p>
-            </div>
-            <div class="card-actions">
-              <button class="btn btn-sm btn-outline" onclick="alert('Quiz coming soon')">Play</button>
-            </div>
-          </div>
-          <div class="card no-img">
-            <div class="card-body">
-              <h3>Past Paper Practice</h3>
-              <p class="muted">Mock questions with timings.</p>
-            </div>
-            <div class="card-actions">
-              <button class="btn btn-sm btn-outline" onclick="alert('Quiz coming soon')">Play</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- AI SECTION PLACEHOLDER -->
-    <section id="ai-section" class="section">
-      <div class="container">
-        <h2>AI Features Coming Soon</h2>
-        <p>Interactive AI-powered guidance to help you learn faster and smarter.</p>
-        <a class="btn btn-primary" href="#">Learn More</a>
-      </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section id="testimonials" class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">What learners say</h2>
-        <div class="testimonials-grid">
-          <blockquote class="testimonial">
-            <p class="stars">★★★★★</p>
-            <p class="quote">Clear lessons and excellent practice — helped me improve quickly.</p>
-            <cite>— S. Patel</cite>
-          </blockquote>
-          <blockquote class="testimonial">
-            <p class="stars">★★★★★</p>
-            <p class="quote">Great past-papers and explanations. The tips were really useful.</p>
-            <cite>— L. Brown</cite>
-          </blockquote>
-          <blockquote class="testimonial">
-            <p class="stars">★★★★★</p>
-            <p class="quote">User-friendly and well structured. Highly recommended.</p>
-            <cite>— R. Khan</cite>
-          </blockquote>
-        </div>
-      </div>
-    </section>
-
-    <!-- NEWSLETTER -->
-    <section class="section">
-      <div class="container">
-        <div class="newsletter">
-          <h3>Get new tips directly</h3>
-          <form class="newsletter-form" id="newsletterForm" onsubmit="event.preventDefault(); alert('Thanks — newsletter subscription coming soon');">
-            <input type="email" placeholder="your@email.com" aria-label="Email" required>
-            <button class="btn btn-primary" type="submit">Subscribe</button>
-          </form>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>© <span id="year"></span> SmartStudy11+ Guide — All rights reserved</p>
-      <small class="muted">Made for learners • High-quality free resources</small>
     </div>
   </footer>
-
-  <!-- MODALS -->
-  <div id="modal-maths" class="modal" aria-hidden="true">
-    <div class="modal-dialog" role="dialog" aria-modal="true">
-      <button class="modal-close" aria-label="Close">×</button>
-      <h3>Maths tips</h3>
-      <p>Practice with a timer, learn common strategies and review mistakes immediately.</p>
-    </div>
-  </div>
-  <div id="modal-english" class="modal" aria-hidden="true">
-    <div class="modal-dialog" role="dialog" aria-modal="true">
-      <button class="modal-close" aria-label="Close">×</button>
-      <h3>English tips</h3>
-      <p>Read short passages daily, summarise and practise grammar in short bursts.</p>
-    </div>
-  </div>
-  <div id="modal-papers" class="modal" aria-hidden="true">
-    <div class="modal-dialog" role="dialog" aria-modal="true">
-      <button class="modal-close" aria-label="Close">×</button>
-      <h3>Past papers tips</h3>
-      <p>Simulate exam conditions, time yourself and mark strictly to improve pacing.</p>
-    </div>
-  </div>
 
   <!-- AI PARTICLE SCRIPT -->
   <script>
@@ -318,6 +246,5 @@
     initParticles();
     animate();
   </script>
-
 </body>
 </html>
