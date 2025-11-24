@@ -4,59 +4,75 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Courses — SmartStudy11+ Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo">SmartStudy<span class="accent">11+</span> Guide</a>
-      <nav class="main-nav">
+      <a class="logo" href="index.html">SmartStudy<span class="accent">11+</span> Guide</a>
+      <button id="navToggle2" class="nav-toggle" aria-label="Open navigation"><span class="hamburger"></span></button>
+      <nav class="main-nav" id="mainNav2">
         <a href="index.html">Home</a>
-        <a href="courses.html">Courses</a>
+        <a href="courses.html" class="active">Courses</a>
         <a href="past-papers.html">Past Papers</a>
         <a href="tips.html">Tips</a>
         <a href="plans.html">Plans</a>
-        <a href="contact.html">Contact</a>
         <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="container page-content fade">
-    <section class="page-head">
-      <h1>Courses</h1>
-      <p class="muted">Free structured paths and premium course packs coming soon.</p>
-    </section>
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1 class="page-title">Courses</h1>
+        <p class="muted">Structured paths for each topic. Free core content with optional extras.</p>
 
-    <section class="course-grid">
-      <article class="course card">
-        <img src="https://images.unsplash.com/photo-1600195077075-7c6a1c57bb34?q=80&w=1200" alt="Verbal reasoning">
-        <h3>Verbal Reasoning — Foundation</h3>
-        <p>Core strategies, practice questions and timed tests.</p>
-        <a class="link" href="#">Start lesson →</a>
-      </article>
+        <div class="cards-grid">
+          <article class="course card">
+            <img src="https://images.unsplash.com/photo-1600195077075-7c6a1c57bb34?q=80&w=1200" alt="Verbal reasoning">
+            <div class="card-body">
+              <h3>Verbal Reasoning — Foundation</h3>
+              <p class="muted">Core strategies, practice questions and timed tests.</p>
+            </div>
+            <div class="card-actions">
+              <a class="btn btn-outline" href="#">Start lesson →</a>
+            </div>
+          </article>
 
-      <article class="course card">
-        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1200" alt="Maths">
-        <h3>Maths — Mastery</h3>
-        <p>Step-by-step methods and past paper practice.</p>
-        <a class="link" href="#">Start lesson →</a>
-      </article>
+          <article class="course card">
+            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1200" alt="Maths">
+            <div class="card-body">
+              <h3>Maths — Mastery</h3>
+              <p class="muted">Step-by-step methods and past paper practice.</p>
+            </div>
+            <div class="card-actions">
+              <a class="btn btn-outline" href="#">Start lesson →</a>
+            </div>
+          </article>
 
-      <article class="course card">
-        <img src="https://images.unsplash.com/photo-1548095115-45697e8b80f7?q=80&w=1200" alt="Non verbal">
-        <h3>Non-Verbal Reasoning</h3>
-        <p>Visual puzzles, strategies and timed practice.</p>
-        <a class="link" href="#">Start lesson →</a>
-      </article>
+          <article class="course card">
+            <img src="https://images.unsplash.com/photo-1548095115-45697e8b80f7?q=80&w=1200" alt="Non verbal">
+            <div class="card-body">
+              <h3>Non-Verbal Reasoning</h3>
+              <p class="muted">Visual puzzles, strategies and timed practice.</p>
+            </div>
+            <div class="card-actions">
+              <a class="btn btn-outline" href="#">Start lesson →</a>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">© 2025 SmartStudy11+ Guide</div>
+    <div class="container footer-inner">
+      <p>© <span id="year2"></span> SmartStudy11+ Guide</p>
+    </div>
   </footer>
 </body>
 </html>
-
-
